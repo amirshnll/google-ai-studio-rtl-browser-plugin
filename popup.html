@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <h3>RTL Director Settings</h3>
+
+  <div class="toggle-container">
+    <span>Enable Extension</span>
+    <label class="switch">
+      <input type="checkbox" id="toggleExtension" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="toggle-container" style="margin-top: -6px; margin-bottom: 14px;">
+    <span>Keep Code Blocks LTR</span>
+    <label class="switch">
+      <input type="checkbox" id="preserveCode" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="toggle-container" style="margin-top: -6px; margin-bottom: 14px;">
+    <span>RTL User Prompts</span>
+    <label class="switch">
+      <input type="checkbox" id="rtlUserPrompts" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="toggle-container" style="margin-top: -6px; margin-bottom: 14px;">
+    <span>RTL Input Field</span>
+    <label class="switch">
+      <input type="checkbox" id="rtlUserInput">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="input-group">
+    <input type="text" id="selectorInput" placeholder="Add custom CSS selector...">
+    <button id="addSelector">Add</button>
+  </div>
+
+  <div class="controls">
+    <button id="selectAll" class="text-btn">Toggle All</button>
+  </div>
+
+  <div class="selectors-list" id="selectorsList">
+  </div>
+
+  <div class="font-section">
+    <div class="toggle-container" style="background: none; padding: 0; margin-bottom: 8px;">
+      <span style="font-weight: bold; font-size: 13px;">Customize Text Font</span>
+      <label class="switch">
+        <input type="checkbox" id="fontEnabled">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="font-control-group" id="textControls" style="display: none;">
+      <div class="font-select-wrapper">
+        <input type="text" id="textFontInput" class="font-input" list="fontList"
+          placeholder="Click to search/select font...">
+      </div>
+      <span class="helper-text">💡 Search by typing a font name, or use Vazirmatn (default).</span>
+      <div class="font-row">
+        <span>Text Size</span>
+        <div class="size-controls">
+          <button id="decTextSize" class="size-btn">-</button>
+          <span id="textSizeVal">14px</span>
+          <button id="incTextSize" class="size-btn">+</button>
+        </div>
+      </div>
+      <button id="resetTextFont" class="text-btn" style="align-self: flex-start; margin-top: 4px;">Reset Text
+        Settings</button>
+    </div>
+  </div>
+
+  <div class="font-section">
+    <div class="toggle-container" style="background: none; padding: 0; margin-bottom: 8px;">
+      <span style="font-weight: bold; font-size: 13px;">Customize Code Font</span>
+      <label class="switch">
+        <input type="checkbox" id="codeFontEnabled">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="font-control-group" id="codeControls" style="display: none;">
+      <div class="font-select-wrapper">
+        <input type="text" id="codeFontInput" class="font-input" list="fontList"
+          placeholder="Click to search/select code font...">
+      </div>
+      <span class="helper-text">💡 Search by typing a monospace/system font name.</span>
+      <div class="font-row">
+        <span>Code Size</span>
+        <div class="size-controls">
+          <button id="decCodeSize" class="size-btn">-</button>
+          <span id="codeSizeVal">13px</span>
+          <button id="incCodeSize" class="size-btn">+</button>
+        </div>
+      </div>
+      <button id="resetCodeFont" class="text-btn" style="align-self: flex-start; margin-top: 4px;">Reset Code
+        Settings</button>
+    </div>
+  </div>
+
+  <button id="forceApply" class="action-btn" style="margin-top: 8px;">Force Apply RTL on Current Tab</button>
+
+  <div style="text-align: center; margin-top: 15px; font-size: 12px;">
+    <a href="https://ashokri.com/donate/" target="_blank" style="color: #666; text-decoration: none;">☕ Buy me a coffee / Donate</a>
+  </div>
+
+  <datalist id="fontList"></datalist>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
